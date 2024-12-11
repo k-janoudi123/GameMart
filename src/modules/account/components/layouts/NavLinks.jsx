@@ -36,7 +36,7 @@ const NavLinks = (props) => {
 
       <li className={pathname === "/contact" ? "active" : ""}>
         <Link
-          href="/contact-one"
+          href="/contact"
           className="sub-menu-item hover:text-secondary transition-colors duration-200"
         >
           CONTACT

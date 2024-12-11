@@ -43,7 +43,7 @@ const CategoryCard = ({ index, image, id, title, price }) => {
                        hover:text-secondary duration-500 ease-in-out"
         >
           <p className="  pt-3 ">{title}</p>
-          <p>{price + "KWD"}</p>
+          <p>{price + "EUR"}</p>
         </Link>
         {/* <p className=" mt-3 text-slate-400 ml-2">{desc}</p> */}
 
@@ -57,7 +57,7 @@ const CategoryCard = ({ index, image, id, title, price }) => {
                after:start-0 after:duration-500 hover:text-secondary
               after:bg-secondary duration-500"
           >
-           Add to Cart <FaArrowRight className="ms-1 text-[10px] " />
+            Add to Cart <FaArrowRight className="ms-1 text-[10px] " />
           </Link>
         </div>
       </div>
