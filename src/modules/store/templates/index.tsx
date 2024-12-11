@@ -5,7 +5,7 @@ import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 
 import PaginatedProducts from "./paginated-products"
-
+import CategoryControl from "my-components/control/CategoryControl"
 const StoreTemplate = ({
   sortBy,
   page,
@@ -23,7 +23,12 @@ const StoreTemplate = ({
       className="flex flex-col small:flex-row small:items-start py-6 content-container"
       data-testid="category-container"
     >
+
+      <div className="flex flex-col">
+
       <RefinementList sortBy={sort} />
+     
+      </div>
       <div className="w-full">
         <div className="mb-8 text-2xl-semi">
           <h1 data-testid="store-page-title">All products</h1>
