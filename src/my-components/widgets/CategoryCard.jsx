@@ -10,9 +10,10 @@ import Link from "next/link"
 import Image from "next/image"
 
 
-const CategoryCard = ({ index, image, id, title, text }) => {
+const CategoryCard = ({ index, image, id, title, text, path }) => {
   return (
-    <div
+    <Link
+     href={path}
       key={index}
       className="blog flex relative rounded-md cursor-pointer
                   shadow dark:shadow-gray-300 group overflow-hidden"
@@ -69,7 +70,7 @@ const CategoryCard = ({ index, image, id, title, text }) => {
           </Link>
         </div>
       </div> */}
-    </div>
+    </Link>
   )
 }
 

@@ -1,24 +1,34 @@
-import { notFound } from "next/navigation"
+"use client"
+
+import React, { useEffect, useState } from "react"
 import CartDropdown from "../cart-dropdown"
-import { enrichLineItems, retrieveCart } from "@lib/data/cart"
 
-const fetchCart = async () => {
-  const cart = await retrieveCart()
+const CartButton = () => {
+  const [cart, setCart] = useState(null)
+  const [loading, setLoading] = useState(true)
 
-  if (!cart) {
-    return null
+  useEffect(() => {
+    const fetchCart = async () => {
+      setLoading(true)
+      try {
+        const res = await fetch("/api/cart") // Replace with your API endpoint
+        const data = await res.json()
+        setCart(data)
+      } catch (err) {
+        console.error("Failed to fetch cart:", err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchCart()
+  }, [])
+
+  if (loading) {
+    return <div>Loading...</div>
   }
-
-  if (cart?.items?.length) {
-    const enrichedItems = await enrichLineItems(cart.items, cart.region_id!)
-    cart.items = enrichedItems
-  }
-
-  return cart
-}
-
-export default async function CartButton() {
-  const cart = await fetchCart()
 
   return <CartDropdown cart={cart} />
 }
+
+export default CartButton

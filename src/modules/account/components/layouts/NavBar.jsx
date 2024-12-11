@@ -6,6 +6,8 @@ import NavLinks from "./NavLinks"
 // import SocialMediaLinks from "../navbar/SocialMediaLinks";
 // import SideBar from "../navbar/SideBar";
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { Suspense } from "react"
+import CartButton from "@modules/layout/components/cart-button"
 
 import acccountImg from "../../../../images/home/icons/icons8-account-50.png"
 import cartImg from "../../../../images/home/icons/icons8-cart-30.png"
@@ -62,16 +64,22 @@ const NavBar = () => {
             </Link>
           </li>
           <li className="inline ps-1 mb-0">
-            <Link
-              href="/"
-              target="_blank"
-              className="h-9 w-9 inline-flex items-center 
-              justify-center tracking-wide align-middle duration-500 
-              text-base text-center rounded-full 
-                text-white "
+            <Suspense
+              fallback={
+                <LocalizedClientLink
+                  className="h-9 inline-flex items-center 
+  justify-center tracking-wide align-middle duration-500 
+  text-base text-center rounded-full 
+    text-white "
+                  href="/cart"
+                  data-testid="nav-cart-link"
+                >
+                  Cart (0)
+                </LocalizedClientLink>
+              }
             >
-              <Image className="lg:h-6 lg:w-6 h-6 w-6" src={cartImg} alt="" />
-            </Link>
+              <CartButton />
+            </Suspense>
           </li>
         </ul>
 
@@ -83,4 +91,14 @@ const NavBar = () => {
 
 export default NavBar
 
-              
+
+{/* <Link
+  href="/"
+  target="_blank"
+  className="h-9 w-9 inline-flex items-center 
+  justify-center tracking-wide align-middle duration-500 
+  text-base text-center rounded-full 
+    text-white "
+>
+  <Image className="lg:h-6 lg:w-6 h-6 w-6" src={cartImg} alt="" />
+</Link> */}

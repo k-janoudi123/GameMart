@@ -9,33 +9,33 @@ import { text } from "node:stream/consumers"
 const CategoryGrid = () => {
   const categoryData = [
     {
-      id: 2,
+      id: 1,
       Image: img2,
-
+      path: "/categories/playstation",
       text: "PlayStation",
     },
     {
-      id: 3,
+      id: 2,
       Image: img3,
-
+      path: "/categories/pc-gaming",
       text: "PC Gaming",
     },
     {
-      id: 1,
+      id: 3,
       Image: img1,
-
+      path: "/categories/xbox",
       text: "Xbox",
     },
     {
       id: 4,
       Image: img4,
-
+      path: "/categories/nintendo",
       text: "Nintendo",
     },
     {
       id: 5,
       Image: img5,
-
+      path: "/categories/merch",
       text: "Merchandise",
     },
   ]
@@ -49,6 +49,7 @@ const CategoryGrid = () => {
           return (
             <CategoryCard
               key={index}
+              path={item.path}
               index={index}
               image={item.Image.src}
               id={item.id}
@@ -62,6 +63,7 @@ const CategoryGrid = () => {
           return (
             <CategoryCard
               key={index}
+              path={item.path}
               index={index}
               image={item.Image.src}
               id={item.id}

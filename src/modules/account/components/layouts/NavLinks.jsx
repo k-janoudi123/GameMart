@@ -1,6 +1,7 @@
 import React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 const NavLinks = (props) => {
   const { navClass } = props
@@ -42,12 +43,16 @@ const NavLinks = (props) => {
         </Link>
       </li>
       <li className={pathname === "/search" ? "active" : ""}>
-        <Link
-          href="/search"
-          className="sub-menu-item hover:text-secondary transition-colors duration-200"
-        >
-          SEARCH
-        </Link>
+        {process.env.NEXT_PUBLIC_FEATURE_SEARCH_ENABLED && (
+          <LocalizedClientLink
+            className="sub-menu-item hover:text-secondary transition-colors duration-200"
+            href="/search"
+            scroll={false}
+            data-testid="nav-search-link"
+          >
+            Search
+          </LocalizedClientLink>
+        )}
       </li>
     </ul>
   )

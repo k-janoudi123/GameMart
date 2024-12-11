@@ -32,6 +32,7 @@ export default async function Home({
   const data = [
     {
       id: 1,
+      
       Image: img1,
       price: 100,
       text: "PlayStation",
