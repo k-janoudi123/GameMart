@@ -2,6 +2,7 @@ import React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { StoreRegion } from "@medusajs/types"
 
 const NavLinks = (props) => {
   const { navClass } = props
@@ -9,38 +10,38 @@ const NavLinks = (props) => {
   return (
     <ul className="flex items-center gap-12 font-semibold text-base py-4">
       <li className={`${pathname === "/" ? "active" : ""}`}>
-        <Link
+        <LocalizedClientLink
           href="/"
           className="sub-menu-item hover:text-secondary transition-colors duration-200"
         >
           HOME
-        </Link>
+        </LocalizedClientLink>
       </li>
       <li className={`${pathname === "/store" ? "active" : ""}`}>
-        <Link
+        <LocalizedClientLink
           href="/store"
           className="sub-menu-item hover:text-secondary transition-colors duration-200"
         >
           SHOP
-        </Link>
+        </LocalizedClientLink>
       </li>
 
       <li>
-        <Link
+        <LocalizedClientLink
           className="text-gray-100 hover:text-secondary transition-colors duration-200"
           href="/about"
         >
           ABOUT
-        </Link>
+        </LocalizedClientLink>
       </li>
 
       <li className={pathname === "/contact" ? "active" : ""}>
-        <Link
+        <LocalizedClientLink
           href="/contact"
           className="sub-menu-item hover:text-secondary transition-colors duration-200"
         >
           CONTACT
-        </Link>
+        </LocalizedClientLink>
       </li>
       <li className={pathname === "/search" ? "active" : ""}>
         {process.env.NEXT_PUBLIC_FEATURE_SEARCH_ENABLED && (

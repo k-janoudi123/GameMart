@@ -13,18 +13,20 @@ import { BsEye } from "react-icons/bs"
 import Link from "next/link"
 import Image from "next/image"
 
-const CategoryCard = ({ index, image, id, title, price }) => {
+const CategoryCard = ({ index, image, id, title, price, handle }) => {
+  console.log(title)
   return (
-    <div
+    <Link
+      href={`/products/${handle}`}
       key={index}
-      className=" flex flex-col  rounded-sm cursor-pointer
+      className=" flex flex-col justify-between  rounded-sm cursor-pointer
                   shadow-md dark:shadow-secondary group "
     >
-      <div className="relative overflow-hidden ">
+      <div className="relative overflow-hidden flex-1 flex items-center">
         <Image
           src={image}
           className="cursor-pointer 
-        transition-transform duration-500  transform group-hover:scale-110"
+        transition-transform duration-500 my-auto h-full  transform group-hover:scale-110"
           width={500}
           height={800}
           sizes="100vw"
@@ -37,19 +39,17 @@ const CategoryCard = ({ index, image, id, title, price }) => {
         ></div>
       </div>
       <div className="flex flex-col justify-center text-center">
-        <Link
-          href={`/blog-detail/${id}`}
+        <div
           className="title  text-lg font-medium
                        hover:text-secondary duration-500 ease-in-out"
         >
           <p className="  pt-3 ">{title}</p>
           <p>{price + "EUR"}</p>
-        </Link>
+        </div>
         {/* <p className=" mt-3 text-slate-400 ml-2">{desc}</p> */}
 
         <div className="mt-4    ">
-          <Link
-            href={`/blog-detail/${id}`}
+          <div
             className="relative mb-3 inline-flex items-center font-normal 
                 tracking-wide align-middle text-base text-center 
                    border-none after:content-[''] after:absolute after:h-px after:w-0 
@@ -58,10 +58,10 @@ const CategoryCard = ({ index, image, id, title, price }) => {
               after:bg-secondary duration-500"
           >
             Add to Cart <FaArrowRight className="ms-1 text-[10px] " />
-          </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

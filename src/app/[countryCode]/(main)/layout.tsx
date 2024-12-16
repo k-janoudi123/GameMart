@@ -19,6 +19,7 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
     <>
       
       {props.children}
+      kjhbvuyv
       <Footer />
     </>
   )

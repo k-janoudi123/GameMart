@@ -18,6 +18,7 @@ const CartButton = () => {
         console.error("Failed to fetch cart:", err)
       } finally {
         setLoading(false)
+        console.log("loading")
       }
     }
 

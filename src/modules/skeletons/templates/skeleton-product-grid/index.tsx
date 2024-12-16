@@ -7,6 +7,7 @@ const SkeletonProductGrid = () => {
       {repeat(8).map((index) => (
         <li key={index}>
           <SkeletonProductPreview />
+          
         </li>
       ))}
     </ul>

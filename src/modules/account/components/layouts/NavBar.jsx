@@ -7,7 +7,7 @@ import NavLinks from "./NavLinks"
 // import SideBar from "../navbar/SideBar";
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { Suspense } from "react"
-import CartButton from "@modules/layout/components/cart-button"
+import CartButton from "@modules/layout/components/cart-button/index"
 
 import acccountImg from "../../../../images/home/icons/icons8-account-50.png"
 import cartImg from "../../../../images/home/icons/icons8-cart-30.png"
@@ -91,8 +91,8 @@ const NavBar = () => {
 
 export default NavBar
 
-
-{/* <Link
+{
+  /* <Link
   href="/"
   target="_blank"
   className="h-9 w-9 inline-flex items-center 
@@ -101,4 +101,5 @@ export default NavBar
     text-white "
 >
   <Image className="lg:h-6 lg:w-6 h-6 w-6" src={cartImg} alt="" />
-</Link> */}
+</Link> */
+}

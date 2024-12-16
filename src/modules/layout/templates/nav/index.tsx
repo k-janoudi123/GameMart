@@ -3,7 +3,7 @@ import { Suspense } from "react"
 import { listRegions } from "@lib/data/regions"
 import { StoreRegion } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import CartButton from "@modules/layout/components/cart-button"
+import CartButton from "@modules/layout/components/cart-button/index.server"
 import SideMenu from "@modules/layout/components/side-menu"
 
 export default async function Nav() {
