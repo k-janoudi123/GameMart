@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import React from "react"
 import useSWR from "swr"
 import Product from "../widgets/Product"
@@ -9,7 +9,7 @@ import { getProductPrice } from "@lib/util/get-product-price"
 import fetcher from "@lib/util/fetcher"
 const NewArrivalsGrid = ({ countryCode }: any) => {
   console.log("NewArrivalsGrid")
-let price = ''
+  let price = ""
   // const fetchPrice = async (product: any) => {
   //   try {
   //     // const { products } = await sdk.store.product.list(
@@ -19,7 +19,7 @@ let price = ''
 
   //     const region = await getRegion(countryCode)
   //     const pricedProduct = await getProductByHandle(product.handle, region.id)
-      
+
   //     if (!pricedProduct || !pricedProduct.variants?.length) {
   //       throw new Error("No product variants found")
   //     }
@@ -59,7 +59,6 @@ let price = ''
 
   // fetchData()
 
- 
   const { data, error, isLoading } = useSWR(
     `http://localhost:9000/store/products`,
     fetcher
@@ -74,17 +73,15 @@ let price = ''
     productsData = data.products
     console.log("data with fetcher", data.products)
     console.log("fetched price:" + data.products[0])
-    
-    
   }
-  if (!productsData )  return <div>Loading...</div>
+  if (!productsData) return <div>Loading...</div>
   if (error) return "error"
   return (
     <div
       className="mx-auto container lg:px-10  pb-10 justify-center hidden px-2 lg:grid lg:grid-cols-4 grid-cols-2 lg:gap-y-6 gap-y-2
      lg:gap-x-4 gap-x-2"
     >
-      {data.products.map((item, index) => {
+      {data.products.map((item: any, index: any) => {
         return (
           <Product
             countryCode={countryCode}
@@ -95,7 +92,8 @@ let price = ''
             id={item.id}
             price={item}
             title={item.title}
-          /> )
+          />
+        )
       })}
     </div>
   )

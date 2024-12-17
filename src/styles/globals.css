@@ -1294,46 +1294,6 @@
   display: none;
 }
 
-.slider-controler {
-  position: relative;
-  bottom: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slider-controler .swiper-button-next {
-  left: 58% !important;
-  transform: translateX(-58%) !important;
-}
-
-@media (max-width: 990px) {
-  .slider-controler .swiper-button-next {
-    left: 70% !important;
-    transform: translateX(-70%) !important;
-  }
-}
-
-@media (max-width: 450px) {
-  .slider-controler .swiper-button-next {
-    left: 80% !important;
-    transform: translateX(-80%) !important;
-  }
-}
-
-@media (max-width: 990px) {
-  .slider-controler .swiper-button-prev {
-    left: 30% !important;
-    transform: translateX(-30%) !important;
-  }
-}
-
-@media (max-width: 450px) {
-  .slider-controler .swiper-button-prev {
-    left: 20% !important;
-    transform: translateX(-20%) !important;
-  }
-}
 
 .slider-controler .slider-arrow {
   background: var(--white);
@@ -1406,10 +1366,10 @@
 }
 
 /* Default styles for .container */
-.container {
+/* .container {
   padding-left: 15px;
   padding-right: 15px;
-}
+} */
 
 .mb-container {
   width: 100%;
@@ -1421,12 +1381,7 @@
 
 
 
-@media screen and (min-width: 500px) and (max-width: 1300px) {
-    .c-padding {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-}
+
 /* Remove padding for mobile view */
 /* @media (max-width: 767px) {
   .my-container {

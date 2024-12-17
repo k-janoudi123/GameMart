@@ -7,7 +7,7 @@ const page = () => {
   return (
     <div className="bg-light mt-10 pb-20 border-b border-gray-200">
       <div className="lg:container mx-auto flex lg:flex-row flex-col lg:px-32 px-2 justify-center items-center">
-        <section className="flex flex-col w-full lg:w-4/6 my-6 gap-8">
+        <section className="flex flex-col w-full lg:w-1/2 my-6 gap-8">
           <h1 className="lg:text-[2.5rem] text-lg text-gray-800">
             About GameMart
           </h1>

@@ -58,17 +58,17 @@ const Product = ({ index, image, id, title, price, handle, countryCode }) => {
         left-0 h-full   items-center justify-end w-full "
         ></div>
       </div>
-      <div className="flex flex-col justify-center text-center">
+      <div className="flex flex-col justify-center text-center h-20">
         <div
-          className="title  text-lg font-medium
+          className="title  text-lg font-medium py-3 
                        hover:text-secondary duration-500 ease-in-out"
         >
-          <p className="  pt-3 ">{title}</p>
+          <p className="  ">{title}</p>
           <p>{productPrice}</p>
         </div>
         {/* <p className=" mt-3 text-slate-400 ml-2">{desc}</p> */}
 
-        <div className="mt-4    ">
+        {/* <div className="mt-4    ">
           <div
             className="relative mb-3 inline-flex items-center font-normal 
                 tracking-wide align-middle text-base text-center 
@@ -79,7 +79,7 @@ const Product = ({ index, image, id, title, price, handle, countryCode }) => {
           >
             Add to Cart <FaArrowRight className="ms-1 text-[10px] " />
           </div>
-        </div>
+        </div> */}
       </div>
     </Link>
   )

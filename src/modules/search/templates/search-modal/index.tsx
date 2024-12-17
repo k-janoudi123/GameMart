@@ -176,10 +176,10 @@ export default function SearchModal({countryCode}:any) {
      lg:gap-x-4 gap-x-2"
             >
               {data.products
-                ?.filter((item) =>
+                ?.filter((item:any) =>
                   item.title.toLowerCase().includes(search.toLowerCase())
                 )
-                .map((item, index) => {
+                .map((item:any, index:any) => {
                   return (
                     <Product
                       countryCode={countryCode}
