@@ -34,7 +34,7 @@ const Product = ({ index, image, id, title, price, handle, countryCode }) => {
 
       getPrice()
     }, []) 
-    if (!productPrice) return <div>Loading...</div>
+    // if (!productPrice) return <div>Loading...</div>
   return (
     <Link
       href={`/products/${handle}`}

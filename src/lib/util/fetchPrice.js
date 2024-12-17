@@ -25,7 +25,7 @@ export const fetchPrice = async (product, countryCode) => {
       })
 
       // console.log("Priced Product:", pricedProduct)
-      console.log("Price:", price.cheapestPrice?.calculated_price)
+      console.log("Price:", price)
 
       return price.cheapestPrice?.calculated_price
     } catch (error) {
