@@ -24,7 +24,7 @@ console.log("testing" + products)
     <>
       
       {props.children}
-      kjhbvuyv
+      
       <Footer />
     </>
   )

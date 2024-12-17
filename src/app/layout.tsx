@@ -12,7 +12,6 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <html lang="en" data-mode="light">
       <body>
         <Header/>
-        uygiubu
         <main className="relative">{props.children}</main>
       </body>
     </html>

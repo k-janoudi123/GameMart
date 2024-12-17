@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import React from "react"
 import useSWR from "swr"
 import Product from "../widgets/Product"
@@ -6,59 +6,60 @@ import { sdk } from "@lib/config"
 import { getRegion } from "@lib/data/regions"
 import { getProductByHandle } from "@lib/data/products"
 import { getProductPrice } from "@lib/util/get-product-price"
+import fetcher from "@lib/util/fetcher"
 const NewArrivalsGrid = ({ countryCode }: any) => {
   console.log("NewArrivalsGrid")
+let price = ''
+  // const fetchPrice = async (product: any) => {
+  //   try {
+  //     // const { products } = await sdk.store.product.list(
+  //     //   { fields: "handle" },
+  //     //   { next: { tags: ["products"] } }
+  //     // )
 
-  const fetchProductsAndPrice = async () => {
-    try {
-      const { products } = await sdk.store.product.list(
-        { fields: "handle" },
-        { next: { tags: ["products"] } }
-      )
+  //     const region = await getRegion(countryCode)
+  //     const pricedProduct = await getProductByHandle(product.handle, region.id)
+      
+  //     if (!pricedProduct || !pricedProduct.variants?.length) {
+  //       throw new Error("No product variants found")
+  //     }
 
-      const region = await getRegion(countryCode)
-      const pricedProduct = await getProductByHandle(
-        products[0].handle,
-        region.id
-      )
+  //     const variantId = pricedProduct.variants[0].id
 
-      if (!pricedProduct || !pricedProduct.variants?.length) {
-        throw new Error("No product variants found")
-      }
+  //     const price = await getProductPrice({
+  //       product: pricedProduct,
+  //       variantId: variantId,
+  //     })
 
-      // Assuming you're picking the first variant for price fetching
-      const variantId = pricedProduct.variants[0].id
+  //     // console.log("Priced Product:", pricedProduct)
+  //     console.log("Price:", price.cheapestPrice?.calculated_price)
 
-      // Correctly passing an object with `product` and `variantId`
-      const price = await getProductPrice({
-        product: pricedProduct, // Pass the product object
-        variantId: variantId, // Pass the variant ID
-      })
+  //     return price.cheapestPrice?.calculated_price
+  //   } catch (error) {
+  //     console.error("Error fetching products:", error)
+  //     throw error // Re-throw the error for further handling
+  //   }
+  // }
 
-      console.log("Priced Product:", pricedProduct)
-      console.log("Price:", price)
+  // const fetchData = async () => {
+  //   try {
+  //     const { products } = await sdk.store.product.list(
+  //       { fields: "handle" },
+  //       { next: { tags: ["products"] } }
+  //     )
 
-      return products // Return products if needed
-    } catch (error) {
-      console.error("Error fetching products:", error)
-      throw error // Re-throw the error for further handling
-    }
-  }
+  //     console.log("data:", products)
 
-  fetchProductsAndPrice()
+  //     return products
+  //   } catch (error) {
+  //     console.error("Error fetching products:", error)
+  //     throw error // Re-throw the error for further handling
+  //   }
+  // }
 
-  const fetcher = async (input: RequestInfo, init?: RequestInit) => {
-    const response = await fetch(input, {
-      ...init,
-      headers: {
-        ...init?.headers,
-        "x-publishable-api-key":
-          "pk_41dbe9bc46aa2d71862a6178f2b927647481cdeba12cc6305a4c892f978ac259",
-      },
-    })
-    return response.json()
-  }
+  // fetchData()
 
+ 
   const { data, error, isLoading } = useSWR(
     `http://localhost:9000/store/products`,
     fetcher
@@ -71,9 +72,12 @@ const NewArrivalsGrid = ({ countryCode }: any) => {
     console.error("Error fetching data:", error)
   } else {
     productsData = data.products
-    console.log(data.products)
+    console.log("data with fetcher", data.products)
+    console.log("fetched price:" + data.products[0])
+    
+    
   }
-  if (!productsData) return <div>Loading...</div>
+  if (!productsData )  return <div>Loading...</div>
   if (error) return "error"
   return (
     <div
@@ -83,15 +87,15 @@ const NewArrivalsGrid = ({ countryCode }: any) => {
       {data.products.map((item, index) => {
         return (
           <Product
+            countryCode={countryCode}
             key={index}
             index={index}
             image={item.thumbnail}
             handle={item.handle}
             id={item.id}
-            price={item.price}
+            price={item}
             title={item.title}
-          />
-        )
+          /> )
       })}
     </div>
   )
