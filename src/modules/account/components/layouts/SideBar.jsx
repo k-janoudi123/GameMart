@@ -15,43 +15,37 @@ function SideBar() {
   //   const showSidebar = () => setSidebar(true);
 
  const SidebarData = [
-  {
-    title: "Home",
-    path: "/",
-    icon: <AiIcons.AiFillHome />,
-    cName: "nav-text",
-  },
-  {
-    title: "Hotels",
-    path: "/hotels",
-    icon: <FaIcons.FaBuilding />,
-    cName: "nav-text",
-  },
-  {
-    title: "Cars",
-    path: "/cars",
-    icon: <IoIcons.IoIosCar />,
-    cName: "nav-text",
-  },
-  {
-    title: "Tours",
-    path: "/tours",
-    icon: <FaIcons.FaPlane />,
-    cName: "nav-text",
-  },
-  {
-    title: "About",
-    path: "/about",
-    icon: <IoIcons.IoMdPeople />,
-    cName: "nav-text",
-  },
-  {
-    title: "Contact",
-    path: "/contact",
-    icon: <FaIcons.FaEnvelopeOpenText />,
-    cName: "nav-text",
-  },
-]
+   {
+     title: "Home",
+     path: "/",
+     icon: <AiIcons.AiFillHome />,
+     cName: "nav-text",
+   },
+   {
+     title: "Shop",
+     path: "/store",
+     icon: <FaIcons.FaBuilding />,
+     cName: "nav-text",
+   },
+   {
+     title: "About",
+     path: "/about",
+     icon: <IoIcons.IoMdPeople />,
+     cName: "nav-text",
+   },
+   {
+     title: "Contact",
+     path: "/contact",
+     icon: <FaIcons.FaEnvelopeOpenText />,
+     cName: "nav-text",
+   },
+   {
+     title: "Seach",
+     path: "/search",
+     icon: <IoIcons.IoMdSearch />,
+     cName: "nav-text",
+   },
+ ]
 
   return (
     <div className="lg:hidden container mx-auto z-[999]">
@@ -64,11 +58,11 @@ function SideBar() {
 
         <Image
           src={menuImg}
-          width={34}
-          height={34}
+          width={40}
+          height={38}
           alt="menu icon"
-          className={`cursor-pointer z-30 p-[6px] inline lg:hidden rounded-full
-           ${sidebar ? "" : "bg-[#0D5953]"}`}
+          className={`cursor-pointer z-30 p-[6px] inline lg:hidden rounded-lg
+           ${sidebar ? "" : "bg-[#FF9C01]"}`}
           onClick={() => setSidebar(true)}
         />
         <nav className={`${sidebar ? "nav-menu active" : "nav-menu"} `}>

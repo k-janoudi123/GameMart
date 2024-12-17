@@ -65,7 +65,7 @@ const Navbar = (props) => {
   return (
     <nav
       id="topnav"
-      className="bg-blackshaded z-[999]
+      className="bg-[#161622] z-[999]
       text-gray-100 border border-black"
     >
       <div className="thin-line">
@@ -82,7 +82,7 @@ const Navbar = (props) => {
         <NavBar />
       </div>
     </nav>
-  );
+  )
 };
 
 export default Navbar;

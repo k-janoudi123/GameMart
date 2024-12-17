@@ -78,7 +78,7 @@ const NewArrivalsGrid = ({ countryCode }: any) => {
   if (error) return "error"
   return (
     <div
-      className="mx-auto container lg:px-10  pb-10 justify-center hidden px-2 lg:grid lg:grid-cols-4 grid-cols-2 lg:gap-y-6 gap-y-2
+      className="mx-auto container lg:px-10  pb-10 justify-center  px-2 lg:grid lg:grid-cols-4 grid-cols-2 lg:gap-y-6 gap-y-2
      lg:gap-x-4 gap-x-2"
     >
       {data.products.map((item: any, index: any) => {

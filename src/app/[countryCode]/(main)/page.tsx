@@ -74,7 +74,7 @@ console.log("testing" + products)
       <Hero />
       <div>
         <CategoryGrid />
-        poij
+      
         <div className="py-20">
           <Image
             src={discountBanner}
