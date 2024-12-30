@@ -8,19 +8,23 @@ const NavLinks = (props) => {
   const { navClass } = props
   const pathname = usePathname()
   return (
-    <ul className="flex items-center gap-12 font-semibold text-base py-4">
-      <li className={`${pathname === "/" ? "active" : ""}`}>
+    <ul className="lg:flex hidden items-center gap-12 font-semibold text-base py-4">
+      <li >
         <LocalizedClientLink
           href="/"
-          className="sub-menu-item hover:text-secondary transition-colors duration-200"
+          className={`${
+            pathname === "/dk" ? "text-secondary" : ""
+          } sub-menu-item hover:text-secondary transition-colors duration-200`}
         >
           HOME
         </LocalizedClientLink>
       </li>
-      <li className={`${pathname === "/store" ? "active" : ""}`}>
+      <li>
         <LocalizedClientLink
           href="/store"
-          className="sub-menu-item hover:text-secondary transition-colors duration-200"
+          className={`${
+            pathname === "/dk/store" ? "text-secondary" : ""
+          } sub-menu-item hover:text-secondary transition-colors duration-200`}
         >
           SHOP
         </LocalizedClientLink>
@@ -28,7 +32,9 @@ const NavLinks = (props) => {
 
       <li>
         <LocalizedClientLink
-          className="text-gray-100 hover:text-secondary transition-colors duration-200"
+          className={`${
+            pathname === "/dk/about" ? "text-secondary" : ""
+          } sub-menu-item hover:text-secondary transition-colors duration-200`}
           href="/about"
         >
           ABOUT
@@ -38,7 +44,9 @@ const NavLinks = (props) => {
       <li className={pathname === "/contact" ? "active" : ""}>
         <LocalizedClientLink
           href="/contact"
-          className="sub-menu-item hover:text-secondary transition-colors duration-200"
+          className={`${
+            pathname === "/dk/contact" ? "text-secondary" : ""
+          } sub-menu-item hover:text-secondary transition-colors duration-200`}
         >
           CONTACT
         </LocalizedClientLink>
@@ -46,12 +54,14 @@ const NavLinks = (props) => {
       <li className={pathname === "/search" ? "active" : ""}>
         {process.env.NEXT_PUBLIC_FEATURE_SEARCH_ENABLED && (
           <LocalizedClientLink
-            className="sub-menu-item hover:text-secondary transition-colors duration-200"
+            className={`${
+              pathname === "/dk/search" ? "text-secondary" : ""
+            } sub-menu-item hover:text-secondary transition-colors duration-200`}
             href="/search"
             scroll={false}
             data-testid="nav-search-link"
           >
-            Search
+            SEARCH
           </LocalizedClientLink>
         )}
       </li>

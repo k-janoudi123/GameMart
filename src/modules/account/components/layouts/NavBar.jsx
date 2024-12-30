@@ -4,7 +4,7 @@ import NavLinks from "./NavLinks"
 // import logo from "../../Images/logo/logo-wide.png";
 // import SearchIcon from "../control/SearchIcon";
 // import SocialMediaLinks from "../navbar/SocialMediaLinks";
-// import SideBar from "../navbar/SideBar";
+import SideBar from "./SideBar"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { Suspense } from "react"
 import CartButton from "@modules/layout/components/cart-button/index"
@@ -17,12 +17,12 @@ import Link from "next/link"
 const NavBar = () => {
   const [isMenu, setisMenu] = useState(false)
   return (
-    <div className="flex items-center md:justify-between justify-between lg:p-0 pt-3">
-      <Link href="/" className="py-1">
+    <div className="lg:px-5 lg:flex lg:items-center md:justify-between  lg:p-0 pt-3">
+      <Link href="/" className="py-1 hidden lg:inline-block">
         <Image
           alt="GameMart Logo"
           src={logo}
-          className="lg:w-[40px] w-[100px] lg:h-[40px]"
+          className="lg:w-[40px] w-[100px] lg:h-[40px] "
         />
       </Link>
       <div id="navigation" style={{ display: isMenu ? "block" : "none" }}>
@@ -51,7 +51,7 @@ const NavBar = () => {
               />
             </LocalizedClientLink>
           </li>
-          <li className="inline ps-1 mb-0">
+          {/* <li className="inline ps-1 mb-0">
             <Link
               href="https://1.envato.market/techwind-next"
               target="_blank"
@@ -62,7 +62,7 @@ const NavBar = () => {
             >
               <Image className="lg:h-6 lg:w-6 h-6 w-6" src={heartImg} alt="" />
             </Link>
-          </li>
+          </li> */}
           <li className="inline ps-1 mb-0">
             <Suspense
               fallback={
@@ -83,7 +83,7 @@ const NavBar = () => {
           </li>
         </ul>
 
-        {/* <SideBar /> */}
+        <SideBar />
       </ul>
     </div>
   )
