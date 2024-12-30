@@ -65,11 +65,11 @@ const Navbar = (props) => {
   return (
     <nav
       id="topnav"
-      className="bg-blackshaded z-[999]
+      className="bg-[#161622] z-[999]
       text-gray-100 border border-black"
     >
       <div className="thin-line">
-        <div className="container mx-auto">
+        <div className="container mx-auto lg:px-5">
           <div className="md:h-8 max-h-full gap-2 hidden md:flex md:flex-row items-center justify-end text-sm">
             <div className="flex hover:text-secondary items-center justify-between gap-2 cursor-pointer">
               {/* <BsWhatsapp className="h-3 w-3  " /> */}
@@ -78,11 +78,11 @@ const Navbar = (props) => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto py-1">
+      <div className=" container mx-auto py-1">
         <NavBar />
       </div>
     </nav>
-  );
+  )
 };
 
 export default Navbar;

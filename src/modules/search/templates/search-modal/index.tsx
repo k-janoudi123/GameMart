@@ -13,7 +13,7 @@ import Hit from "@modules/search/components/hit"
 import Hits from "@modules/search/components/hits"
 import SearchBox from "@modules/search/components/search-box"
 import useSWR from "swr"
-export default function SearchModal() {
+export default function SearchModal({countryCode}:any) {
   const router = useRouter()
   const [search, setSearch] = useState("")
   // const searchRef = useRef<HTMLDivElement>(null)
@@ -176,17 +176,19 @@ export default function SearchModal() {
      lg:gap-x-4 gap-x-2"
             >
               {data.products
-                ?.filter((item) =>
+                ?.filter((item:any) =>
                   item.title.toLowerCase().includes(search.toLowerCase())
                 )
-                .map((item, index) => {
+                .map((item:any, index:any) => {
                   return (
                     <Product
+                      countryCode={countryCode}
                       key={index}
                       index={index}
                       image={item.thumbnail}
+                      handle={item.handle}
                       id={item.id}
-                      price={item.title}
+                      price={item}
                       title={item.title}
                     />
                   )

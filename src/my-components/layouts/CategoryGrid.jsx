@@ -40,9 +40,9 @@ const CategoryGrid = () => {
     },
   ]
   return (
-    <div className="mx-auto container lg:px-10">
+    <div className="mx-auto  lg:px-10">
       <div
-        className="mx-auto  justify-center hidden lg:px-0 px-2 lg:grid lg:grid-cols-5 grid-cols-2 lg:gap-y-6 gap-y-2
+        className="mx-auto container justify-center hidden lg:px-0 px-2 lg:grid lg:grid-cols-5 grid-cols-2 lg:gap-y-6 gap-y-2
      lg:gap-x-4 gap-x-2"
       >
         {categoryData.map((item, index) => {
