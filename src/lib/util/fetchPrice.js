@@ -2,14 +2,16 @@
 import { getRegion } from "@lib/data/regions"
 import { getProductByHandle } from "@lib/data/products"
 import { getProductPrice } from "@lib/util/get-product-price"
-
+import { sdk } from "@lib/config"
 export const fetchPrice = async (product, countryCode) => {
     try {
-      // const { products } = await sdk.store.product.list(
-      //   { fields: "handle" },
-      //   { next: { tags: ["products"] } }
-      // )
+      const { products } = await sdk.store.product.list(
+        { fields: "handle" },
+        { next: { tags: ["products"] } }
+      )
 
+
+      console.log(products)
       const region = await getRegion(countryCode)
       const pricedProduct = await getProductByHandle(product.handle, region.id)
       
@@ -31,5 +33,5 @@ export const fetchPrice = async (product, countryCode) => {
     } catch (error) {
       console.error("Error fetching products:", error)
       throw error // Re-throw the error for further handling
-    }
+    } 
   }
